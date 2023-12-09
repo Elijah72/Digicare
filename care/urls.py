@@ -9,6 +9,6 @@ urlpatterns = [
     path('about.html',views.about,name ='about'),
     path('services.html', views.about, name='services'),
     path('pricing/',PricingTemplateView.as_view(),name = 'pricing'),
-    path('payment/', PaymentTemplateView.as_view(), name='index'),
+    path('payment/', PaymentTemplateView.as_view(), name='payment'),
 
 ]

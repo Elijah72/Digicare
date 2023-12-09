@@ -38,6 +38,8 @@
     <link rel="stylesheet" href="{% static 'css/icomoon.css' %}" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
+
+
   <body>
     <section class="ftco-section">
       <div class="container">
@@ -51,125 +53,89 @@
           </div>
         </div>
 
-
         <div class="row">
-
-          <div class="col-md-3 ftco-animate">
-            <div class="pricing-entry pb-5 text-center">
-              <div>
-                  {% for plan in plans %}
-                    {% if plan.name == 'Basic Plan' %}
-                <h3 class="mb-4">{{ plan.name }}</h3>
-                <p>
-                  <span class="price">{{ plan.price }}</span>
-                  <span class="per">/ session</span>
+          {% for plan in plans %}
+            <div class="col-md-3 ftco-animate">
+              <div class="pricing-entry pb-5 text-center">
+                <div>
+                  {% if plan.name == 'Basic Plan' %}
+                    <h3 class="mb-4">{{ plan.name }}</h3>
+                    <p>
+                      <span class="price">Ksh{{ plan.price }}</span>
+                      <span class="per">/ session</span>
+                    </p>
+                      <ul>
+                  <li>Diagnostic Services</li>
+                  <li>Professional Consultation</li>
+                  <li>Tooth Implants</li>
+                  <li>Surgical Extractions</li>
+                  <li>Teeth Whitening</li>
+                </ul>
+                <p class="button text-center">
+                  <a href="{% url 'payment' %}" class="btn btn-primary btn-outline-primary px-4 py-3">Order now</a>
                 </p>
-              </div>
-              <ul>
-                <li>Diagnostic Services</li>
-                <li>Professional Consultation</li>
-                <li>Tooth Implants</li>
-                <li>Surgical Extractions</li>
-                <li>Teeth Whitening</li>
-              </ul>
-              <p class="button text-center">
-                <a
-                  href="#"
-                  class="btn btn-primary btn-outline-primary px-4 py-3"
-                  >Order now</a
-                >
-              </p>
-            </div>
-          </div>
+                  {% elif plan.name == 'Standard Plan' %}
+                    <!-- Content for Standard Plan -->
+                      <h3 class="mb-4">{{ plan.name }}</h3>
+                    <p>
+                      <span class="price">Ksh{{ plan.price }}</span>
+                      <span class="per">/ session</span>
+                    </p>
 
-          <div class="col-md-3 ftco-animate">
-            <div class="pricing-entry pb-5 text-center">
-              <div>
-                    {% elif plan.name == 'Standard Plan' %}
-                <h3 class="mb-4">{{ plan.name }}</h3>
-                <p>
-                  <span class="price">{{ plan.price }}</span>
-                  <span class="per">/ session</span>
+                      <ul>
+                  <li>Diagnostic Services</li>
+                  <li>Professional Consultation</li>
+                  <li>Tooth Implants</li>
+                  <li>Surgical Extractions</li>
+                  <li>Teeth Whitening</li>
+                </ul>
+                <p class="button text-center">
+                  <a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">Order now</a>
                 </p>
-              </div>
-              <ul>
-                <li>Diagnostic Services</li>
-                <li>Professional Consultation</li>
-                <li>Tooth Implants</li>
-                <li>Surgical Extractions</li>
-                <li>Teeth Whitening</li>
-              </ul>
-              <p class="button text-center">
-                <a
-                  href="#"
-                  class="btn btn-primary btn-outline-primary px-4 py-3"
-                  >Order now</a
-                >
-                   {% elif plan.name == 'Premium Plan' %}
-              </p>
-            </div>
-          </div>
-
-          <div class="col-md-3 ftco-animate">
-            <div class="pricing-entry active pb-5 text-center">
-              <div>
-
-                <h3 class="mb-4">{{ plan.name }}</h3>
-                <p>
-                  <span class="price">{{ plan.price }}</span>
-                  <span class="per">/ session</span>
+                  {% elif plan.name == 'Premium Plan' %}
+                      <h3 class="mb-4">{{ plan.name }}</h3>
+                    <p>
+                      <span class="price">Ksh{{ plan.price }}</span>
+                      <span class="per">/ session</span>
+                    </p>
+                      <ul>
+                  <li>Diagnostic Services</li>
+                  <li>Professional Consultation</li>
+                  <li>Tooth Implants</li>
+                  <li>Surgical Extractions</li>
+                  <li>Teeth Whitening</li>
+                </ul>
+                <p class="button text-center">
+                  <a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">Order now</a>
                 </p>
-              </div>
-
-              <ul>
-                <li>Diagnostic Services</li>
-                <li>Professional Consultation</li>
-                <li>Tooth Implants</li>
-                <li>Surgical Extractions</li>
-                <li>Teeth Whitening</li>
-              </ul>
-              <p class="button text-center">
-                <a
-                  href="#"
-                  class="btn btn-primary btn-outline-primary px-4 py-3"
-                  >Order now</a
-                >
-              </p>
-            </div>
-          </div>
-            {% elif plan.name == 'Platinum Plan' %}
-          <div class="col-md-3 ftco-animate">
-            <div class="pricing-entry pb-5 text-center">
-              <div>
-
-                <h3 class="mb-4">{{ plan.name }}</h3>
-                <p>
-                  <span class="price">{{ plan.price }}</span>
-                    {% endif %}
-                  <span class="per">/ session</span>
+                    <!-- Content for Premium Plan -->
+                  {% elif plan.name == 'Platinum Plan' %}
+                    <!-- Content for Platinum Plan -->
+                      <h3 class="mb-4">{{ plan.name }}</h3>
+                    <p>
+                      <span class="price">Ksh{{ plan.price }}</span>
+                      <span class="per">/ session</span>
+                    </p>
+                      <ul>
+                  <li>Diagnostic Services</li>
+                  <li>Professional Consultation</li>
+                  <li>Tooth Implants</li>
+                  <li>Surgical Extractions</li>
+                  <li>Teeth Whitening</li>
+                </ul>
+                <p class="button text-center">
+                  <a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">Order now</a>
                 </p>
-              </div>
+                  {% endif %}
+                </div>
 
-              <ul>
-                <li>Diagnostic Services</li>
-                <li>Professional Consultation</li>
-                <li>Tooth Implants</li>
-                <li>Surgical Extractions</li>
-                <li>Teeth Whitening</li>
-              </ul>
-              <p class="button text-center">
-                <a
-                  href="#"
-                  class="btn btn-primary btn-outline-primary px-4 py-3"
-                  >Order now</a
-                >
-              </p>
+              </div>
             </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </section>
-    {% endfor %}
+
 
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
@@ -189,4 +155,5 @@
     <script src="{% static 'js/google-map.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
   </body>
+
 </html>

@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.views.generic import TemplateView
 from django_daraja.mpesa.core import MpesaClient
 from django.conf import settings
-from .models import Appointment,Plan
+from .models import Appointment, Plan
 
 
 # Create your views here.
@@ -57,8 +57,22 @@ def services(request):
     return render(request, template_name='services.html')
 
 
+class PricingTemplateView(TemplateView):
+    template_name = 'pricing.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['plans'] = Plan.objects.all()
+        return context
+
+
 class PaymentTemplateView(TemplateView):
     template_name = 'payment.html'
+
+    def get_context_data(self, **kwargs):
+        plan = self.request.GET.get('plan')
+        context = {'plan': plan}
+        return context
 
     def post(self, request):
         phone_numbers = request.POST.get("phone_number")
@@ -79,12 +93,3 @@ def stk_push_callback(request):
     data = request.body
 
     return HttpResponse("STK Push in Django👋")
-
-
-class PricingTemplateView(TemplateView):
-    template_name = 'pricing.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['plans'] = Plan.objects.all()
-        return context
