@@ -80,7 +80,7 @@ class PaymentTemplateView(TemplateView):
         cl = MpesaClient()
         # Use a Safaricom phone number that you have access to, for you to be able to view the prompt.
         phone_number = phone_numbers
-        amount = 1
+        amount = int(request.POST.get("amount"))
         account_reference = 'reference'
         transaction_desc = 'Description'
         callback_url = 'https://api.darajambili.com/express-payment';

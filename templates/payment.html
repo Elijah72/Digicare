@@ -17,9 +17,15 @@
             <div class="d-flex flex-row mt-5">
                 <form action="" method="post">
                     {% csrf_token %}
-                    <input type="number" name="phone_number" class="form-control" autofocus=""></div>
+                    <input type="number" name="phone_number" class="form-control" autofocus="">
+                    <label for="amount">Amount</label>
+                    <input type="number" name="amount" class="form-control" autofocus=""><br>
+                    <br>
+                     <input type="submit" value="SEND"  class="font-weight-bold text-danger cursor">
+
+            </div>
                     <div class="text-center mt-5"><span class="d-block mobile-text">Don't receive the Promt?</span>
-                        <input type="submit" value="SEND"  class="font-weight-bold text-danger cursor">
+
                         </div>
 
                 </form>
