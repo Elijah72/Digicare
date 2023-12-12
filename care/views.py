@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.core.mail import send_mail, EmailMessage
 from django.http import HttpResponse
 from django.views.generic import TemplateView
@@ -24,7 +24,7 @@ def home(request):
             appointment_message=appointment_message
         )
 
-        return HttpResponse("Appointment received")
+        return redirect('/appointmentreceived/')
     else:
         return render(request, template_name="home.html")
 
@@ -34,7 +34,7 @@ def contact(request):
         message_name = request.POST['message-name']
         message_email = request.POST['message-email']
         message_subject = request.POST['message-subject']
-        unmessage = 'unmessage' in request.POST and request.POST['unmessage']
+        unmessage = request.POST['usermessage']
 
         email = EmailMessage(
             subject=f"{message_subject} ",
@@ -44,7 +44,7 @@ def contact(request):
             reply_to=[message_email]
         )
         email.send()
-        return HttpResponse("Email Sent Successfull")
+        return redirect('/messagesent/')
     else:
         return render(request, template_name="contact.html")
 
@@ -93,3 +93,9 @@ def stk_push_callback(request):
     data = request.body
 
     return HttpResponse("STK Push in Django👋")
+
+
+def message_sent(request):
+    return render(request,template_name='message_confirmation.html')
+def appointment(request):
+    return render(request,template_name='Appointmentreceived.html')

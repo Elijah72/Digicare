@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>DentaCare - Free Bootstrap 4 Template by Colorlib</title>
+    <title>DigiCare</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -41,6 +41,7 @@
 
 
   <body>
+  {% block content %}
     <section class="ftco-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-5">
@@ -135,7 +136,7 @@
         </div>
       </div>
     </section>
-
+    {% endblock %}
 
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
