@@ -13,7 +13,8 @@ import os
 import environ
 
 from pathlib import Path
-
+import django_heroku
+import dj_database_url
 import django.core.mail.backends.smtp
 from decouple import config
 
@@ -141,6 +142,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # sendin emails
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -188,3 +190,5 @@ MPESA_PASSKEY = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c91
 MPESA_INITIATOR_USERNAME = 'testapi'
 # Plaintext password for initiator (to be used in B2C, B2B, AccountBalance and TransactionStatusQuery Transactions)
 MPESA_INITIATOR_SECURITY_CREDENTIAL = 'Safaricom999!*!'
+
+django_heroku.settings(locals())
