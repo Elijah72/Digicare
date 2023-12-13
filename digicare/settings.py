@@ -17,6 +17,7 @@ import django_heroku
 import dj_database_url
 import django.core.mail.backends.smtp
 from decouple import config
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -33,14 +34,13 @@ env = environ.Env(
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # False if not in os.environ because of casting above
-DEBUG = config('DEBUG',cast= bool)
+DEBUG = config('DEBUG', cast=bool)
 
 # Raises Django's ImproperlyConfigured
 # exception if SECRET_KEY not in os.environ
-SECRET_KEY ="django-insecure-s)&_bbcj799r1!=!p4md3+&k_g#8i*8b=1_t_j_=$&*c4yfk5!"
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
