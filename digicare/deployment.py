@@ -1,5 +1,4 @@
-import os
-import environ
+
 
 from .settings import *
 from .settings import BASE_DIR

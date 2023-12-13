@@ -14,11 +14,6 @@ import environ
 
 from pathlib import Path
 
-
-
-
-
-
 import django.core.mail.backends.smtp
 from decouple import config
 
@@ -42,16 +37,7 @@ DEBUG = env('DEBUG')
 # exception if SECRET_KEY not in os.environ
 SECRET_KEY = env('SECRET_KEY')
 
-
-
-
-
-
-
-
 # SECURITY WARNING: keep the secret key used in production secret!
-
-
 
 
 SECRET_KEY = config('SECRET_KEY')
@@ -154,8 +140,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # sendin emails
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
