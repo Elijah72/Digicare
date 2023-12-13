@@ -38,7 +38,7 @@ DEBUG = config('DEBUG', cast=bool)
 
 # Raises Django's ImproperlyConfigured
 # exception if SECRET_KEY not in os.environ
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
